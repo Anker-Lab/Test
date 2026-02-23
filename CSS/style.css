@@ -685,7 +685,7 @@ footer .copyright {
 /* =========================
    MOBIL
    ========================= */
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
   .hero {
     grid-template-columns: 1fr;
   }
@@ -699,7 +699,7 @@ footer .copyright {
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
   .hero-content {
     padding: 40px 20px;       /* mindre padding */
     max-width: 100%;           /* fylder hele bredden */
@@ -1161,6 +1161,7 @@ footer .copyright {
     width: 100%;
     height: 200px;      /* sæt samme højde på alle billeder */
     object-fit: cover;  /* beskær hvis billedet ikke passer */
+    object-position: top center; /* fokus på toppen af billedet */
     border-radius: 8px;
     margin-bottom: 15px;
 }
