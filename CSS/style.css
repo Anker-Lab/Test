@@ -1,0 +1,1623 @@
+/* =========================
+   RESET & BASE
+   ========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F7FAF7;
+    color: #202223;
+    line-height: 1.5;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+
+
+/* =========================
+   HEADER
+   ========================= */
+
+header {
+  width: 100%;
+  background-color: #F7FAF7;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  position: relative;
+  z-index: 1000; /* så den ligger over indholdet */
+  position: sticky;
+  top: 0;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
+.logo img {
+  width: 280px;
+  max-width: 100%;
+}
+
+/* Højre side (desktop) */
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 15px;
+}
+
+/* Øverste linje: lokationer + sprog */
+.top-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Lokationer */
+.locations a {
+  font-size: 0.9rem;
+  color: #202223;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.locations a:hover {
+  text-decoration: underline;
+}
+
+/* Sprog */
+.language {
+  position: relative;
+}
+
+.language button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  color: #202223;
+}
+
+.language ul {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  list-style: none;
+  background: white;
+  padding: 5px 0;
+  margin: 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.language:hover ul {
+  display: block;
+}
+
+.language ul li a {
+  display: block;
+  padding: 6px 12px;
+  text-decoration: none;
+  color: #202223;
+}
+
+.language ul li a {
+    display: inline-block;
+    margin: 0 5px;
+    font-size: 15px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.language ul li a:hover {
+    background-color: #202223;
+    color: #F7FAF7;
+}
+
+/* Navigation (desktop) */
+.nav a {
+  margin-left: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #202223;
+}
+
+.nav a {
+    display: inline-block;
+    margin: 0 5px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: #202223;
+    color: #F7FAF7;
+}
+
+
+/* Hamburger toggle (skjult som default) */
+#menu-toggle {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+}
+
+/* Mobil menu (skjult på desktop) */
+.mobile-menu {
+  display: none;
+}
+
+
+
+/* =========================
+   DESKTOP
+   ========================= */
+
+@media (min-width: 1200px) {
+
+  .hamburger {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: none;
+  }
+
+}
+
+
+
+/* =========================
+   MOBIL
+   ========================= */
+
+@media (max-width: 1200px) {
+
+  /* Header layout */
+  .header-inner {
+    align-items: center;
+  }
+
+  /* Skjul desktop-højreside */
+  .locations {
+    display: none;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  /* Logo i midten */
+  .logo {
+    margin: 0 auto;
+  }
+
+  /* Hamburger */
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+
+  .hamburger span {
+    display: flex;
+    width: 25px;
+    height: 3px;
+    background-color: #202223;
+    margin: 5px 0;
+  }
+
+  /* Sprog til højre */
+  .language {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+
+  /* Mobil menu */
+  #menu-toggle:checked ~ .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    margin-top: 20px;
+  }
+
+  /* Navigation øverst */
+  .mobile-nav a {
+  display: block;
+  width: 100%;            /* Fylder hele menu-bredden */
+  padding: 12px 20px;     /* God klikbar højde og lidt indrykning */
+  font-size: 1.1rem;
+  margin: 0;              /* Fjern margin for at strege baggrund ud */
+  text-decoration: none;
+  color: #202223;
+  border-radius: 5px;     /* Bløde hjørner, valgfrit */
+  box-sizing: border-box;
+  transition: background 0.2s, color 0.2s;
+}
+
+.mobile-nav a:hover {
+  background-color: #202223;  /* Sort baggrund */
+  color: #F7FAF7;             /* Lys tekst */
+}
+
+  /* Divider */
+  .divider {
+    width: 80%;
+    height: 1px;
+    background-color: #ccc;
+  }
+
+  /* Lokationer nederst */
+  .mobile-locations a {
+    display: block;
+    font-size: 0.9rem;
+    margin: 5px 0;
+    text-decoration: none;
+    color: #202223;
+  }
+
+  .mobile-locations a:hover {
+    text-decoration: underline;
+  }
+}
+
+
+/* =========================
+   FOOTER – GENERELT
+   ========================= */
+
+footer {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* =========================
+   NYHEDSMAIL (LYS)
+   ========================= */
+
+footer .newsletter {
+  background-color: #f0f0f0;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+footer .newsletter h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #222;
+  font-weight: bold;
+}
+
+footer .newsletter p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #555;
+  line-height: 1.5;
+}
+
+footer .newsletter-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+footer .newsletter-location {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 250px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+footer .newsletter-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #202223;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+footer .newsletter-button:hover {
+  background-color: #555;
+}
+
+
+/* =========================
+   SORT FOOTER-BUND
+   ========================= */
+
+.footer-bottom {
+  background-color: #202223;
+  color: #F7FAF7;
+  padding: 50px 40px 20px;
+}
+
+
+/* =========================
+   SOCIAL BAR
+   ========================= */
+
+.social-bar {
+  padding: 25px 0;
+}
+
+.social-inner {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  font-size: 22px;
+}
+
+.social-inner a {
+  color: #202223;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0.8;
+}
+
+.social-inner a:hover {
+  transform: translateY(-4px);
+  opacity: 1;
+}
+
+
+/* =========================
+   LOKATIONER (DESKTOP)
+   ========================= */
+
+.footer-locations {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: start;
+}
+
+/* Kolonner */
+.footer-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* KOLDING – VENSTRE */
+.footer-column:nth-child(1) {
+  text-align: left;
+  align-items: flex-start;
+}
+
+/* FREDERICIA – MIDTEN */
+.footer-column:nth-child(2) {
+  text-align: center;
+  align-items: center;
+}
+
+/* HADERSLEV – HØJRE */
+.footer-column:nth-child(3) {
+  text-align: right;
+  align-items: flex-end;
+}
+
+.footer-column h3 {
+  margin-bottom: 12px;
+}
+
+.footer-column p {
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.footer-column a {
+  color: #F7FAF7;
+  text-decoration: none;
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================
+   SOCIALE IKONER
+   ========================= */
+
+.social-links {
+  display: flex;
+  gap: 10px;
+}
+
+.footer-column:nth-child(1) .social-links {
+  justify-content: flex-start;
+}
+
+.footer-column:nth-child(2) .social-links {
+  justify-content: center;
+}
+
+.footer-column:nth-child(3) .social-links {
+  justify-content: flex-end;
+}
+
+.social-links img {
+  width: 22px;
+  transition: transform 0.2s ease;
+}
+
+.social-links img:hover {
+  transform: scale(1.1);
+}
+
+
+/* =========================
+   COPYRIGHT
+   ========================= */
+
+footer .copyright {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+
+/* =========================
+   MOBIL
+   ========================= */
+@media (max-width: 700px) {
+
+  .footer-locations {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  /* OVERSKRIV desktop nth-child */
+  .footer-column:nth-child(1),
+  .footer-column:nth-child(2),
+  .footer-column:nth-child(3) {
+    text-align: center !important;
+    align-items: center;
+  }
+
+  .footer-column .social-links {
+    justify-content: center !important;
+  }
+}
+
+
+
+/* =========================
+   KOMPONENTER
+   ========================= */
+
+.button {
+    display: inline-block;
+    padding: 14px 28px;
+    background-color: #648de5;
+    color: #F7FAF7;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.button:hover {
+    background-color: #333;
+}
+
+
+/* =========================
+   FORSIDE
+   ========================= */
+
+.frontpage {
+  margin-top: 0px; /* hvis du har sticky header */
+}
+
+/* =========================
+   HERO
+   ========================= */
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 80vh;
+  overflow: hidden;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Mørk overlay for læsbarhed */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(32, 34, 35, 0.85),
+    rgba(32, 34, 35, 0.4)
+  );
+  z-index: 1;
+}
+
+/* =========================
+   CONTENT
+   ========================= */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 80px;
+  color: #F7FAF7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 600px;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.hero-content h2 {
+  font-size: 28px;
+  font-weight: 400;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+.hero-content .intro {
+  font-size: 18px;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+/* Badge */
+.badge {
+  display: inline-block;
+  background-color: #C6A86A;
+  color: #202223;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  width: fit-content;
+}
+
+/* Bibelvers */
+.verse {
+  font-style: italic;
+  font-size: 16px;
+  opacity: 0.85;
+  border-left: 3px solid #c49B5e;
+  padding-left: 16px;
+}
+
+.verse span {
+  display: block;
+  margin-top: 6px;
+  font-style: normal;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* =========================
+   SUPPORT BOX
+   ========================= */
+
+.support-box {
+  margin-top: 50px;
+  font-size: 15px;
+}
+
+.support-intro {
+  margin-bottom: 25px;
+  opacity: 0.85;
+  line-height: 1.6;
+}
+
+.support-contacts {
+  display: flex;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.support-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 180px;
+}
+
+.support-title {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  opacity: 0.8;
+}
+
+.support-name {
+  font-weight: 500;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.support-mail {
+  color: #F7FAF7;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(247, 250, 247, 0.4);
+  width: fit-content;
+  transition: all 0.3s ease;
+}
+
+.support-mail:hover {
+  opacity: 1;
+  border-color: #F7FAF7;
+}
+
+
+/* =========================
+   MOBIL
+   ========================= */
+@media (max-width: 1000px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content {
+    padding: 60px 30px;
+  }
+
+  .hero-image {
+    height: 300px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .hero-content {
+    padding: 40px 20px;       /* mindre padding */
+    max-width: 100%;           /* fylder hele bredden */
+    margin: 0 auto;            /* centrerer blokken */
+    text-align: center;        /* centrerer teksten */
+    align-items: center;       /* centrerer flex */
+  }
+
+  .hero-content h1,
+  .hero-content h2,
+  .hero-content p {
+    text-align: center;
+  }
+}
+
+@media (max-width: 1000px) {
+  .support-contacts {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .support-item {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+
+/* =========================
+   DONATION
+   ========================= */
+
+.donation {
+  background-color: #F7FAF7; /* mørk baggrund for sektionen */
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.donation h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #222; /* hvid tekst */
+  font-weight: bold;
+}
+
+.donation p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #222; /* hvid tekst */
+  line-height: 1.5;
+}
+
+/* Wrapper til lokationer */
+.donation-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* afstand mellem lokationer */
+  margin-top: 20px;
+}
+
+/* Hver lokation */
+.donation-location {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  width: 250px;
+  text-align: center;
+}
+
+.donation-location p {
+  margin-bottom: 10px;
+  color: #222; /* mørk tekst */
+}
+
+.donation-location p strong {
+  font-weight: bold;
+  color: #222; /* mørk tekst */
+}
+
+/* Responsivt */
+@media (max-width: 600px) {
+  .donation-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .donation-location {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+/* =========================
+   OM OS / ABOUT PAGE
+   ========================= */
+
+.about-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+/* HERO */
+.about-hero {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 80px;
+}
+
+.about-hero-text {
+  flex: 1;
+}
+
+.about-hero-text h1 {
+  font-size: 2.4rem;
+  margin-bottom: 20px;
+}
+
+.about-hero-text .intro {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.about-hero-image {
+  flex: 1;
+}
+
+.about-hero-image img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* CONTENT */
+.about-content {
+  max-width: 700px;
+  margin: 0 auto 80px;
+  text-align: center;
+}
+
+.about-content p {
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+
+/* VALUES */
+.about-values {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-bottom: 80px;
+  text-align: center;
+}
+
+.about-values h3 {
+  margin-bottom: 10px;
+}
+
+/* CTA */
+.about-cta {
+  background-color: #f0f3f0;
+  padding: 40px 30px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.05rem;
+}
+
+/* =========================
+   MOBIL
+   ========================= */
+@media (max-width: 1024px) {
+  .about-hero {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .about-hero-text h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .about-hero-text p {
+    text-align: center;
+  }
+  }
+
+  @media (max-width: 756px) {
+  .about-content {
+    text-align: left;
+  }
+
+  .about-values {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+
+/* =========================
+   DET SKER
+   ========================= */
+
+/* Dansk gudstjeneste */
+.social-danish {
+  display: flex;
+  justify-content: center;   /* centrerer hele blokken */
+  gap: 15px;                 /* afstand mellem byerne */
+  margin-top: 5px;           /* matcher spacing på engelsk */
+}
+
+.city-block {
+  display: flex;
+  flex-direction: column;    /* bynavn over ikoner */
+  align-items: center;
+  gap: 4px;                  /* afstand mellem bynavn og ikoner */
+  padding: 0;                /* fjernet baggrund/padding for ensartet look */
+  border-radius: 0;          /* ingen afrunding */
+  background: none;          /* ingen farve */
+}
+
+.city-block span {
+  font-weight: 500;          /* lidt mindre end tidligere, matcher engelske kort */
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.city-icons {
+  display: flex;
+  gap: 8px;
+}
+
+/* Separator */
+.city-divider {
+  width: 30px;
+  height: 35px;
+  background: rgba(255,255,255,0.3);
+}
+
+/* Andre kort */
+.events {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.events h1 {
+    margin-bottom: 10px;
+    font-size: 2rem;
+    color: #222;
+    font-weight: bold;
+}
+
+
+/* =========================
+   Mobilview
+   ========================= */
+
+@media (max-width: 768px) {
+  .social-danish {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+  /* Mobil: vandret separator */
+@media (max-width: 768px) {
+  .social-danish {
+    flex-direction: column;
+  }
+
+  .city-divider {
+    width: 40px;
+    height: 1px;
+    margin: 5px 0;
+  }
+}
+
+/* =========================
+   ChurchCenter / QR
+   ========================= */
+
+.churchcenter-section {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 0 20px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+}
+
+/* Venstre side */
+.churchcenter-text {
+  flex: 1;
+  text-align: left;
+}
+
+.churchcenter-text p {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.churchcenter-arrow {
+  margin-left: 80px;
+  margin-top: 10px;
+  overflow: visible;
+  width: 160px;
+  height: auto;
+}
+
+.churchcenter-arrow svg {
+  width: 160px;
+  height: auto;
+}
+
+/* Højre side */
+.churchcenter-link {
+  flex: 1;
+  text-align: center;
+}
+
+.churchcenter-link img {
+  width: 180px;
+  max-width: 100%;
+  margin-bottom: 15px;
+}
+
+.churchcenter-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #222; /* mørk knap */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.churchcenter-button:hover {
+  background-color: #555; /* lidt lysere ved hover */
+}
+
+/* Kalender abonnér link */
+.calendar-og-tjen {
+  margin-top: 25px;
+  font-size: 0.95rem;
+  opacity: 0.85;
+  text-align: center;
+  margin-bottom: 15 px;
+}
+
+.calendar-og-tjen a {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+
+
+/* Mobil */
+@media (max-width: 700px) {
+  .churchcenter-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .churchcenter-text {
+    text-align: center;
+    margin-top: 20px; /* lidt mere afstand fra ovenstående sektion */
+    margin-bottom: -50px; /* træk teksten tættere på QR */
+  }
+
+  .churchcenter-text p {
+    margin-bottom: 0; /* ingen afstand til QR */
+    line-height: 1.2; /* mindre linjehøjde for tættere tekst */
+  }
+
+  .churchcenter-link {
+    text-align: center;
+  }
+
+  .churchcenter-link img {
+    margin: 0 auto;
+    display: block;
+  }
+
+  .churchcenter-button {
+    margin: 0 auto;
+    display: block;
+  }
+
+  .churchcenter-arrow {
+    display: none; /* pilen giver mindre mening på mobil */
+  }
+}
+
+
+.event-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* centrer alle rækker */
+    gap: 20px; /* afstand mellem kortene */
+    margin-top: 40px;
+}
+
+.event-card {
+    flex: 1 1 calc(33.33% - 20px); /* 3 per række på desktop */
+    min-width: 250px; /* minimum bredde */
+}
+
+/* Desktop: 3, 3, 4 layout */
+/* Desktop: 3, 4, 4 layout */
+@media (min-width: 900px) {
+  /* Første 3 kort */
+  .event-card:nth-child(-n+3) {
+    flex: 1 1 calc(33.33% - 20px);
+  }
+
+  /* Næste 4 kort (kort 4-7) */
+  .event-card:nth-child(n+4):nth-child(-n+7) {
+    flex: 1 1 calc(25% - 20px);
+  }
+
+  /* Sidste 4 kort (kort 8-11) */
+  .event-card:nth-child(n+8):nth-child(-n+11) {
+    flex: 1 1 calc(25% - 20px);
+  }
+}
+
+/* Tablet: 2 per række */
+@media (min-width: 600px) and (max-width: 899px) {
+    .event-card {
+        flex: 1 1 calc(50% - 10px);
+    }
+}
+
+/* Kort indhold */
+.event-card {
+    display: flex;
+    flex-direction: column;  /* sørg for at alt er stablet lodret */
+    justify-content: space-between; /* skubber social-links ned til bunden */
+    flex: 1 1 calc(33.33% - 20px);
+    min-width: 250px;
+    background: #f7f7f7; /* valgfrit, så kortet fremstår tydeligt */
+    padding: 15px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    height: 100%; /* gør alle kort lige høje i flex-container */
+}
+
+.event-card > img {
+    width: 100%;
+    height: 200px;      /* sæt samme højde på alle billeder */
+    object-fit: cover;  /* beskær hvis billedet ikke passer */
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.event-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.event-card p {
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+    flex-shrink: 0; /* forhindrer at teksten skubber link ned */
+}
+
+/* Sociale links */
+.event-card .social-links {
+    margin-top: auto; /* skubber altid til bunden af kortet */
+    display: flex;
+    justify-content: center; /* centrer links horisontalt */
+    gap: 5px;
+}
+
+.event-card .social-links a {
+    margin: 0 5px;
+    display: inline-block;
+}
+
+.event-card .social-links img {
+    width: 20px;
+    opacity: 0.85;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.event-card .social-links img:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Responsivt: mindre skærme */
+@media (max-width: 900px) {
+    .event-card {
+        flex: 1 1 45%; /* 2 på en række */
+    }
+}
+
+@media (max-width: 600px) {
+    .event-card {
+        flex: 1 1 100%; /* 1 på en række */
+    }
+}
+
+
+/* =========================
+   NYHEDSMAIL
+   ========================= */
+.newsletter {
+  background-color: #f3eedd; /* lys baggrund for sektionen */
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.newsletter h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #222;
+  font-weight: bold;
+}
+
+.newsletter p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Wrapper til lokationer */
+.newsletter-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* afstand mellem Kolding/Fredericia */
+  margin-top: 20px;
+}
+
+/* Hver lokation */
+.newsletter-location {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  width: 250px;
+}
+
+.newsletter-location p {
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+/* Knappen */
+.newsletter-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #222; /* mørk knap */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.newsletter-button:hover {
+  background-color: #555; /* lidt lysere ved hover */
+}
+
+/* Responsivt */
+@media (max-width: 600px) {
+  .newsletter-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .newsletter-location {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+
+/* Sociale medier under nyhedsmail */
+.newsletter-socials {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.newsletter-socials img {
+  width: 22px;
+  opacity: 0.7;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.newsletter-socials img:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* =========================
+   GIV – SIDE
+   ========================= */
+
+.give-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+/* INTRO */
+.give-intro {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.give-intro h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.give-intro p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* GIV LOKALT */
+.give-locations h2 {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.give-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.give-card {
+  background: #f3eedd;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.give-card h3 {
+  margin-bottom: 20px;
+}
+
+/* Container for MobilePay + Bank */
+.give-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* MobilePay */
+.mobilepay img {
+  display: block;
+  margin-bottom: 4px;  /* meget tæt på nummeret */
+  max-width: 200px;
+}
+
+.mobilepay p {
+  margin: 0 0 40px 0; /* luft ned til bank */
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1;
+  opacity: 0.85;
+  text-align: center;
+}
+
+/* Bank */
+.bank img {
+  display: block;
+  margin-bottom: 10px;
+  max-width: 200px;
+}
+
+.bank p {
+  margin: 0;
+  line-height: 1.5;
+  text-align: center;
+}
+
+
+/* MISSION */
+.missions {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.missions h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.missions-intro {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+.missions-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.mission-card {
+  background: #f7f7f7;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.mission-card img {
+  width: 100%;           /* fylder bredden af kortet */
+  max-width: 260px;      /* begrænser bredden på store skærme */
+  height: 180px;         /* fast højde for alle billeder */
+  object-fit: cover;     /* bevarer proportioner og fylder rammen */
+  margin: 0 auto 15px auto;
+  display: block;
+  border-radius: 8px;
+}
+
+.mission-card h3 {
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+}
+
+.mission-card p {
+  margin: 6px 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.mission-card a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.mission-card a:hover {
+  text-decoration: underline;
+}
+
+/* Speciel styling for Fredericia */
+.missions-group.fredericia .mission-card {
+  border: 2px solid #0066cc;
+  background: #e6f0ff;
+}
+
+
+
+/* =========================
+   LOKATIONER
+   ========================= */
+
+.location {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 0 20px;
+}
+
+.location h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.location-hero {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.location-image img {
+    max-width: 550px;
+    width: 100%;
+    border-radius: 8px;
+}
+
+.location-info {
+    flex: 1;
+}
+
+.location-socials img {
+    width: 24px;
+    margin-right: 10px;
+}
+
+/* Præster */
+.location-pastors {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.pastor {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.pastor img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+/* =========================
+   RESPONSIV
+   ========================= */
+
+@media (max-width: 768px) {
+    .about-container,
+    .location-hero {
+        flex-direction: column;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-column {
+        text-align: center; /* alle centreret på mobil */
+    }
+
+    .footer-column:last-child {
+        text-align: center; /* Haderslev også centreret */
+    }
+}
+
+
+/* =========================
+   404 SIDE
+   ========================= */
+    .error-page {
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      height: 80vh;
+      padding-top: 5%; /* lidt luft fra toppen */
+      text-align: center;
+      background-image: url('/billeder/404.png'); /* din baggrund */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #222; /* sørg for teksten stadig kan ses */
+    }
+
+    /* overlay til at afdæmpe baggrund */
+    .error-page::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.3); /* hvidt overlay med 30% opacity */
+      /* Alternativt: rgba(0,0,0,0.3) for mørkere overlay */
+      z-index: 0;
+    }
+
+    .container {
+      position: relative; /* sørger for at teksten ligger over overlay */
+      max-width: 600px;
+      padding: 2rem;
+      z-index: 1;
+    }
+
+    .h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .verse {
+      font-style: italic;
+      text-align: left;
+      margin: 2rem 0;
+      line-height: 1.6;
+    }
+
+    .ref {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    a.button {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.8rem 1.5rem;
+      background-color: #222; /* mørk knap */
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    a.button:hover {
+      background-color: #555; /* lidt lysere sort ved hover */
+    }
