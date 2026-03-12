@@ -898,8 +898,15 @@ footer .copyright {
 
 @media (max-width: 1200px) {
   .values-row {
-    gap: 25px;
+    flex-wrap: wrap;       /* tillader flere linjer */
+    justify-content: center; /* centrerer alle linjer */
+    gap: 10px 20px;        /* lodret og vandret afstand mellem værdier */
     font-size: 1.05rem;
+    margin-top: 5px;       /* lidt mindre afstand til intro-teksten */
+  }
+
+  .values-row span {
+    flex: 0 1 auto;        /* gør at hvert element kan bryde til næste linje */
   }
 }
 
