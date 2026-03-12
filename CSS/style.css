@@ -900,7 +900,7 @@ footer .copyright {
   .values-row {
     flex-wrap: wrap;       /* tillader flere linjer */
     justify-content: center; /* centrerer alle linjer */
-    gap: 10px 20px;        /* lodret og vandret afstand mellem værdier */
+    gap: 10px 15px;        /* lodret og vandret afstand mellem værdier */
     font-size: 1.05rem;
     margin-top: 5px;       /* lidt mindre afstand til intro-teksten */
   }
