@@ -583,19 +583,19 @@ footer .copyright {
 }
 
 .hero-content h1 {
-  font-size: 40px;
+  font-size: 60px;
   margin-bottom: 10px;
 }
 
 .hero-content h2 {
-  font-size: 20px;
+  font-size: 28px;
   font-weight: 400;
   margin-bottom: 30px;
   opacity: 0.9;
 }
 
 .hero-content .intro {
-  font-size: 15px;
+  font-size: 18px;
   margin-bottom: 40px;
   line-height: 1.6;
 }
