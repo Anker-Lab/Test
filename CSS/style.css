@@ -542,8 +542,9 @@ footer .copyright {
    ========================= */
 .hero {
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-height: 80vh;
   overflow: hidden;
 }
@@ -558,11 +559,9 @@ footer .copyright {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to right,
-    rgba(32, 34, 35, 0.85),
-    rgba(32, 34, 35, 0.4)
-  );
+  background:
+    linear-gradient(rgba(32,34,35,0.7), rgba(32,34,35,0.7)),
+    url("../billeder/Hero-Background.webp") center center / cover no-repeat;
   z-index: 1;
 }
 
@@ -572,16 +571,19 @@ footer .copyright {
 .hero-content {
   position: relative;
   z-index: 2;
-  padding: 80px;
-  color: #F7FAF7;
+  padding: 80px 30px;
+  color: #F5F5F5;
+
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  max-width: 600px;
+  align-items: center;
+  text-align: center;
+
+  max-width: 700px;
 }
 
 .hero-content h1 {
-  font-size: 48px;
+  font-size: 60px;
   margin-bottom: 10px;
 }
 
@@ -645,13 +647,15 @@ footer .copyright {
 
 .support-contacts {
   display: flex;
-  gap: 60px;
-  flex-wrap: wrap;
+  justify-content: center;   /* centrer hele rækken */
+  gap: 80px;                 /* afstand mellem kolonner */
+  text-align: center;
 }
 
 .support-item {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 6px;
   min-width: 180px;
 }
@@ -669,7 +673,7 @@ footer .copyright {
 }
 
 .support-mail {
-  color: #F7FAF7;
+  color: #F5F5F5;
   text-decoration: none;
   border-bottom: 1px solid rgba(247, 250, 247, 0.4);
   width: fit-content;
@@ -678,43 +682,13 @@ footer .copyright {
 
 .support-mail:hover {
   opacity: 1;
-  border-color: #F7FAF7;
+  border-color: #f5f5f5;
 }
 
 
 /* =========================
    MOBIL
    ========================= */
-@media (max-width: 1200px) {
-  .hero {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-content {
-    padding: 60px 30px;
-  }
-
-  .hero-image {
-    height: 300px;
-  }
-}
-
-@media (max-width: 1200px) {
-  .hero-content {
-    padding: 40px 20px;       /* mindre padding */
-    max-width: 100%;           /* fylder hele bredden */
-    margin: 0 auto;            /* centrerer blokken */
-    text-align: center;        /* centrerer teksten */
-    align-items: center;       /* centrerer flex */
-  }
-
-  .hero-content h1,
-  .hero-content h2,
-  .hero-content p {
-    text-align: center;
-  }
-}
-
 @media (max-width: 1000px) {
   .support-contacts {
     flex-direction: column;
@@ -809,7 +783,7 @@ footer .copyright {
   display: flex;
   gap: 60px;
   align-items: center;
-  margin-bottom: 80px;
+  margin-bottom: 20px;
 }
 
 .about-hero-text {
@@ -818,7 +792,7 @@ footer .copyright {
 
 .about-hero-text h1 {
   font-size: 2.4rem;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 .about-hero-text .intro {
@@ -862,6 +836,27 @@ footer .copyright {
   margin-bottom: 10px;
 }
 
+/* VALUES INTRO */
+.values-intro {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 1.1rem;
+  font-style: italic;       /* gør teksten skrå */
+  margin-bottom: 20px;       /* mindre afstand til værdierne */
+  font-size: 1.1rem;        /* beholder størrelsen */
+  text-align: center;       /* centrerer linjen */
+}
+
+/* VALUES ROW */
+.values-row {
+  display: flex;
+  justify-content: center;  /* centrerer rækken */
+  gap: 20px;                /* afstand mellem værdier */
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
 /* CTA */
 .about-cta {
   background-color: #f0f3f0;
@@ -874,7 +869,7 @@ footer .copyright {
 /* =========================
    MOBIL
    ========================= */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .about-hero {
     flex-direction: column;
     gap: 30px;
@@ -890,7 +885,7 @@ footer .copyright {
   }
   }
 
-  @media (max-width: 756px) {
+  @media (max-width: 1200px) {
   .about-content {
     text-align: left;
   }
@@ -898,6 +893,20 @@ footer .copyright {
   .about-values {
     grid-template-columns: 1fr;
     gap: 30px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .values-row {
+    flex-wrap: wrap;       /* tillader flere linjer */
+    justify-content: center; /* centrerer alle linjer */
+    gap: 10px 15px;        /* lodret og vandret afstand mellem værdier */
+    font-size: 1.05rem;
+    margin-top: 5px;       /* lidt mindre afstand til intro-teksten */
+  }
+
+  .values-row span {
+    flex: 0 1 auto;        /* gør at hvert element kan bryde til næste linje */
   }
 }
 
