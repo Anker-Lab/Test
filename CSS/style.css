@@ -631,6 +631,105 @@ footer .copyright {
 }
 
 /* =========================
+   Rumænien tur
+   ========================= */
+.romania-tour {
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.romania-tour h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #222;
+  position: relative;
+}
+
+.romania-tour h2::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 4px;
+  background: #c49b63;
+  margin: 12px auto 0;
+  border-radius: 10px;
+}
+
+.romania-tour p {
+  max-width: 800px;
+  margin: 0 auto 50px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+.romania-tour img {
+  width: 100%;
+  max-width: 350px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.romania-tour img:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 14px 35px rgba(0,0,0,0.18);
+}
+
+.romania-tour {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.romania-tour h2,
+.romania-tour p {
+  width: 100%;
+}
+
+/* CTA */
+.romania-tour-cta {
+  display: inline-block;
+  background: #c49b63;
+  color: #fff !important;
+  padding: 16px 28px;
+  margin-top: 25px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transition: all 0.25s ease;
+}
+
+.romania-tour-cta:hover {
+  background: #c49b63;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 768px) {
+  .romania-tour h2 {
+    font-size: 2rem;
+  }
+
+  .romania-tour p {
+    font-size: 1rem;
+  }
+
+  .romania-tour img {
+    max-width: 100%;
+    height: 220px;
+  }
+}
+
+/* =========================
    SUPPORT BOX
    ========================= */
 
