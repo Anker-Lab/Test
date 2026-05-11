@@ -37,7 +37,7 @@
 }
 
 .give-card {
-  background: #f3eedd;
+  background: var(--color-bg-2);
   padding: 30px;
   border-radius: 12px;
   text-align: center;
@@ -237,76 +237,3 @@
         text-align: center; /* Haderslev også centreret */
     }
 }
-
-
-/* =========================
-   404 SIDE
-   ========================= */
-    .error-page {
-      position: relative;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      height: 80vh;
-      padding-top: 5%; /* lidt luft fra toppen */
-      text-align: center;
-      background-image: url('/billeder/404.png'); /* din baggrund */
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      color: #222; /* sørg for teksten stadig kan ses */
-    }
-
-    /* overlay til at afdæmpe baggrund */
-    .error-page::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(255, 255, 255, 0.3); /* hvidt overlay med 30% opacity */
-      /* Alternativt: rgba(0,0,0,0.3) for mørkere overlay */
-      z-index: 0;
-    }
-
-    .container {
-      position: relative; /* sørger for at teksten ligger over overlay */
-      max-width: 600px;
-      padding: 2rem;
-      z-index: 1;
-    }
-
-    .h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-
-    .verse {
-      font-style: italic;
-      text-align: left;
-      margin: 2rem 0;
-      line-height: 1.6;
-    }
-
-    .ref {
-      margin-top: 0.5rem;
-      font-size: 0.9rem;
-      opacity: 0.8;
-    }
-
-    a.button {
-      display: inline-block;
-      margin-top: 2rem;
-      padding: 0.8rem 1.5rem;
-      background-color: #222; /* mørk knap */
-      color: #fff;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-    }
-
-    a.button:hover {
-      background-color: #555; /* lidt lysere sort ved hover */
-    }
