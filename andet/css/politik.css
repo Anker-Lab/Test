@@ -50,3 +50,12 @@
   margin-bottom: 0.5rem;
   color: #333;
 }
+
+.legal-section a {
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.legal-section a:hover {
+  text-decoration: underline;
+}
