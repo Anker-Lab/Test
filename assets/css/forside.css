@@ -1,0 +1,217 @@
+/* =========================
+   HERO (FORSIDE)
+   ========================= */
+
+.hero {
+  height: 97vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Baggrundsbillede */
+.hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* mørkt overlay så tekst altid kan læses */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.25),
+    rgba(0,0,0,0.45)
+  );
+
+  z-index: 1;
+}
+
+/* centrer hele content-boksen */
+.hero-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+}
+
+/* selve tekst-boksen */
+.hero-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  max-width: 650px;
+  padding: 0 2rem;
+}
+
+/* dato */
+.date {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
+}
+
+/* overskrift */
+.hero-box h1 {
+  margin: 0;
+  line-height: 1.1;
+}
+
+/* tekst */
+.hero-box p {
+  margin-top: 0.8rem;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+/* knapper række */
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+
+/* =========================
+   Info SECTION
+   ========================= */
+
+.about-move {
+  padding: 6rem 2rem;
+  background: #fff;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* TEXT */
+.about-text h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.about-text p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* IMAGES GRID */
+.about-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.about-images img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* make one image larger for hierarchy */
+.about-images img:first-child {
+  grid-column: span 2;
+  height: 240px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .about-container {
+    grid-template-columns: 1fr;
+  }
+
+  .about-images {
+    grid-template-columns: 1fr;
+  }
+
+  .about-images img:first-child {
+    grid-column: auto;
+  }
+}
+
+
+/* =========================
+   Testimonials SECTION
+   ========================= */
+.testimonials {
+  padding: 6rem 2rem;
+  background: #f7f7f7;
+}
+
+.testimonials-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.testimonials h2 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.testimonials-sub {
+  margin-bottom: 3rem;
+  color: #666;
+}
+
+/* GRID */
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+/* CARD */
+.testimonial-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  text-align: left;
+  transition: 0.2s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+}
+
+.testimonial-card p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.testimonial-card span {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+}

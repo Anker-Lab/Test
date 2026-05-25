@@ -1,0 +1,267 @@
+
+/* =========================
+   HEADER BASE
+   ========================= */
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: var(--header-height);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 2rem;
+
+  background: transparent;
+
+  z-index: 1000;
+
+  color: var(--color-text-light);
+
+  transition: background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+
+/* =========================
+   HEADER SCROLLED (WHITE MODE)
+   ========================= */
+
+header.scrolled {
+  background: rgba(255,255,255,0.95);
+  box-shadow: var(--shadow-sm);
+  color: var(--color-text);
+}
+
+/* =========================
+   FORCE COLOR CONTROL (VIGTIGT)
+   ========================= */
+
+/* sikrer at ALT følger header farve */
+header a,
+header nav a {
+  color: inherit;
+}
+
+/* =========================
+   LEFT SIDE
+   ========================= */
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo img {
+  height: 45px;
+}
+
+/* social icons */
+.social-link img {
+  width: 18px;
+  height: 18px;
+  opacity: 0.85;
+  transition: 0.2s ease;
+}
+
+.social-link:hover img {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+/* =========================
+   NAV
+   ========================= */
+
+nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* underline hover */
+nav a {
+  position: relative;
+  text-decoration: none;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+
+  width: 0;
+  height: 1px;
+
+  background: currentColor;
+  transition: width 0.2s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* =========================
+   RIGHT SIDE
+   ========================= */
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* =========================
+   HAMBURGER (FIXED COLORS)
+   ========================= */
+
+.hamburger {
+  font-size: 1.8rem;
+  cursor: pointer;
+
+  color: inherit; /* VIGTIGT: følger header state */
+  transition: 0.2s ease;
+}
+
+/* =========================
+   LANGUAGE DROPDOWN
+   ========================= */
+
+.lang {
+  position: relative;
+  cursor: pointer;
+}
+
+.lang-icon {
+  padding: 0.4rem 0.6rem;
+  border-radius: var(--radius-sm);
+  transition: background 0.2s ease;
+}
+
+.lang:hover .lang-icon {
+  background: var(--color-bg-2);
+}
+
+.lang-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+
+  min-width: 140px;
+  padding: 0.5rem;
+
+  background: white;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  pointer-events: none;
+
+  transition: 0.2s ease;
+}
+
+.lang:hover .lang-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.lang-dropdown a {
+  display: block;
+  padding: 0.5rem 0.7rem;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+}
+
+.lang-dropdown a:hover {
+  background: var(--color-bg-2);
+}
+
+/* =========================
+   MOBILE MENU
+   ========================= */
+
+.mobile-menu {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(10px);
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  padding: 2rem;
+
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+
+  transition: 0.25s ease;
+}
+
+.mobile-menu.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+header.menu-open {
+  color: var(--color-text);
+  background: rgba(255,255,255,0.97);
+}
+
+header.menu-open .hamburger,
+header.menu-open nav a,
+header.menu-open .social-link {
+  color: var(--color-text) !important;
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 768px) {
+
+  .hamburger {
+    display: block;
+  }
+
+  nav {
+    display: none;
+  }
+
+  .social-link {
+    display: none;
+  }
+
+  header {
+    padding: 0 1rem;
+  }
+
+  .logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

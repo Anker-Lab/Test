@@ -1,114 +1,129 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
+  <!-- Grundlæggende -->
   <meta charset="UTF-8">
-  <title>Kirkeibyen</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="/andet/billeder/logo/favicon.webp" type="image/x-icon">
-  <link rel="stylesheet" href="/andet/css/style.css?v=1">
-  <link rel="stylesheet" href="/andet/css/forside.css?v=1">
+
+  <title>Kirkeibyen</title>
+  <meta name="description" content="Kort beskrivelse af Kirkeibyen">
+
+  <!-- Fonts (Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/logo/favicon/kib_logo_ikon_white_crop.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/logo/favicon/kib_logo_ikon_white_.png" type="image/png">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css?v=160526">
+  <link rel="stylesheet" href="/assets/css/header.css?v=160526">
+  <link rel="stylesheet" href="/assets/css/forside.css?v=160526">
 </head>
 
 <body>
 
   <div id="header"></div>
 
-<!-- HERO -->
-<main class="frontpage">
-
-<section class="hero">
-    <div class="hero-overlay"></div>
-
-    <div class="hero-content">
-      
-
-      <h1>Vi bygger om</h1>
-      <h2>Men vi vender snart tilbage</h2>
-
-      <p class="intro">
-        Vi arbejder på en ny og forbedret hjemmeside.<br>
-        Tak for din tålmodighed 💛
+  <main>
+    <section class="hero">
+      <img src="/assets/images/mainpage/img_4325.webp" alt="Hero Image" class="hero-image">
+      <div class="hero-content">
+        <div class="hero-box">
+          <p class="date">11.-12. september 2026 · Kirkeibyen Kolding</p>
+          <h1>Klar til Move 2026?</h1>
+          <p>Vi samles på tværs af vores lokationer for fællesskab, vision og relationer.</p>
+          <div class="hero-actions">
+            <a href="https://nemtilmeld.dk" class="btn btn-primary">Tilmeld dig</a>
+            <a href="/program" class="btn btn-secondary">Se Program</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- INFO SECTIONS -->
+     <section class="about-move">
+      <div class="about-container">
+        
+        <!-- TEXT -->
+         <div class="about-text">
+          <h2>Hvad er Move?</h2>
+          <p>
+            Move er Kirkeibyens årlige konference, hvor vi samles på tværs af vores lokationer.
+            Det er en weekend med fællesskab, vision og tid sammen som kirke.
+          </p>
+          
+          <p>
+            Vi mødes for at dele det, vi oplever i hverdagen, styrke relationer og blive inspireret
+            til det, vi står i som fællesskab.
+          </p>
+          
+          <p>
+            Move handler ikke om én lokation — men om hele Kirkeibyen samlet som én kirke.
+          </p>
+        </div>
+        
+        <!-- IMAGES -->
+         <div class="about-images">
+          <img src="/assets/images/mainpage/img_7081.webp" alt="Move fællesskab">
+          <img src="/assets/images/mainpage/img_7248.webp" alt="Lovsang til Move">
+          <img src="/assets/images/mainpage/img_6169.webp" alt="Fællesskab ved Move">
+        </div>
+      </div>
+    </section>
+    
+    <!-- testamonials -->
+     <section class="testimonials">
+      <div class="testimonials-container">
+        <h2>Gode historier</h2>
+        <p class="testimonials-sub">
+          Oplevelser fra tidligere år på Move
+        </p>
+        
+        <div class="testimonial-grid">
+          <div class="testimonial-card">
+            <p>
+              “Move var første gang jeg virkelig oplevede, hvordan kirken kan føles som én stor familie.
+              Det gav mig en helt ny forståelse af fællesskab.”
+            </p>
+            <span>- Emma, Kolding</span>
+          </div>
+          
+          <div class="testimonial-card">
+            <p>
+              “Jeg kom egentlig bare for programmet, men endte med at få nogle af de bedste samtaler jeg har haft i kirken.”
+            </p>
+            <span>- Jonas, Fredericia</span>
+          </div>
+          
+          <div class="testimonial-card">
+            <p>
+              “Lovsangen, fællesskabet og energien gjorde det til en weekend jeg stadig tænker tilbage på.”
+            </p>
+            <span>- Sofie, Vejle</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <div id="footer"></div>
+    
+    <div id="cookie-banner" class="cookie-banner">
+      <p>
+        Vi bruger nødvendige cookies for at forbedre din oplevelse og sikre, at hjemmesiden fungerer korrekt.
       </p>
-
-      <div class="support-box">
-  <p class="support-intro">
-    Oplever du problemer med hjemmesiden eller nyhedsmailen?
-    Så kontakt os gerne:
-  </p>
-
-  <div class="support-contacts">
-
-    <div class="support-item">
-      <span class="support-title">Hjemmeside</span>
-      <span class="support-name">Tobias Hansen</span>
-      <a href="mailto:th@kirkeibyen.dk" class="support-mail">
-        th@kirkeibyen.dk
-      </a>
+      <div class="cookie-actions">
+        <button id="accept-cookies">OK</button>
+        <a href="https://kirkeibyen.dk/politik/cookiepolitik/" target="_blank" rel="noopener noreferrer" class="cookie-link">
+          Læs mere
+        </a>
+      </div>
     </div>
-
-    <div class="support-item">
-      <span class="support-title">Nyhedsmail</span>
-      <span class="support-name">André Christensen</span>
-      <a href="mailto:azc@kirkeibyen.dk" class="support-mail">
-        azc@kirkeibyen.dk
-      </a>
-    </div>
-
-    <div class="support-item">
-      <span class="support-title">Generelle henvendelser</span>
-      <a href="mailto:info@kirkeibyen.dk" class="support-mail">
-        info@kirkeibyen.dk
-      </a>
-    </div>
-  </div>
-</div>
-</div>
-  </section>
-
-<!-- =========================
-       RUMÆNIEN TUR
-       ========================= -->
-
-<section class="romania-tour">
-    <h2>Rumænien missionstur</h2>
-    <p>
-      I påskeferien rejste et hold unge fra Kirkeibyen til Rumænien for at besøge missionsprojektet Rescue Mission.
-      Her oplevede vi, hvordan Gud brugte os gennem bøn, lovsang og vidnesbyrd blandt de indsatte i fængslet. Vi fik mulighed for
-      at bringe energi, tid og fællesskab ind i deres hverdag og høre deres historier.
-      Samtidig gav turen os en dybere glæde ved at tjene andre og styrkede fællesskabet på vores team.<br>
-
-      <a href="/giv/" rel="noopener" class="btn">
-        Vær med til at støtte arbejdet i Rumænien
-      </a>
-      
-    </p>
-    <img src="/andet/billeder/rumænien/billede_1.webp" alt="Billede fra Rumænien tur">
-    <img src="/andet/billeder/rumænien/billede_2.webp" alt="Billede fra Rumænien tur">
-    <img src="/andet/billeder/rumænien/billede_3.webp" alt="Billede fra Rumænien tur">
-    <img src="/andet/billeder/rumænien/billede_4.webp" alt="Billede fra Rumænien tur">
-    <img src="/andet/billeder/rumænien/billede_5.webp" alt="Billede fra Rumænien tur">
-    <img src="/andet/billeder/rumænien/billede_6.webp" alt="Billede fra Rumænien tur">
-    <img src="/andet/billeder/rumænien/billede_7.webp" alt="Billede fra Rumænien tur">
-  </section>
-</main>
-
-<div id="footer"></div>
-
-<div id="cookie-banner" class="cookie-banner">
-  <p>
-    Vi bruger nødvendige cookies for at forbedre din oplevelse og sikre, at hjemmesiden fungerer korrekt.
-  </p>
-
-  <div class="cookie-actions">
-    <button id="accept-cookies">OK</button>
-
-    <a href="/politik/cookiepolitik" class="cookie-link">
-      Læs mere
-    </a>
-  </div>
-</div>
-
-<script src="/andet/js/script.js"></script>
-
+    
+    <script src="/assets/js/script.js"></script>
+  
+  </main>
 </body>
 </html>
