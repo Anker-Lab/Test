@@ -85,19 +85,45 @@ document.addEventListener("DOMContentLoaded", () => {
     /* =========================
        HAMBURGER
     ========================= */
+    lang?.classList.remove("open");
+
     burger.addEventListener("click", () => {
 
-      const isOpen = menu.classList.toggle("open");
+  const isOpen = menu.classList.toggle("open");
 
-      header.classList.toggle("menu-open", isOpen);
+  /* luk lang */
+  lang?.classList.remove("open");
 
-      burger.classList.toggle("open", isOpen);
-      burger.textContent = isOpen ? "✕" : "☰";
+  header.classList.toggle("menu-open", isOpen);
 
-      document.body.style.overflow = isOpen ? "hidden" : "";
+  burger.textContent = isOpen ? "✕" : "☰";
 
-      updateLogo();
-    });
+  document.body.style.overflow = isOpen ? "hidden" : "";
+
+  updateLogo();
+});
+
+
+
+    window.addEventListener("resize", () => {
+
+  if (window.innerWidth > 768) {
+
+    menu.classList.remove("open");
+    header.classList.remove("menu-open");
+
+    burger.textContent = "☰";
+
+    document.body.style.overflow = "";
+
+    /* logo tilbage til korrekt state */
+    const scrolled = window.scrollY > 50;
+
+    logo.src = scrolled
+      ? "/assets/logo/move/move.svg"
+      : "/assets/logo/move/move_w.svg";
+  }
+});
 
 
     /* =========================
@@ -120,14 +146,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =========================
-       LANGUAGE (MOBILE)
-    ========================= */
-    if (lang) {
-      lang.addEventListener("click", () => {
-        lang.classList.toggle("open");
-      });
+   LANGUAGE
+========================= */
+if (lang) {
+
+  lang.addEventListener("click", (e) => {
+
+    e.stopPropagation();
+
+    const langIsOpen = lang.classList.contains("open");
+
+    /* hvis hamburger er åben → luk den */
+    menu.classList.remove("open");
+    header.classList.remove("menu-open");
+
+    burger.textContent = "☰";
+    document.body.style.overflow = "";
+
+    /* toggle lang */
+    lang.classList.toggle("open", !langIsOpen);
+
+    /* vigtigt: logo tilbage til korrekt state */
+    updateLogo();
+  });
+
+  /* klik udenfor lukker */
+  document.addEventListener("click", (e) => {
+    if (!lang.contains(e.target)) {
+      lang.classList.remove("open");
     }
-  }
+  });
+}
+
+}
 
 
   /* =========================

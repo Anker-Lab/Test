@@ -1,0 +1,41 @@
+/* =========================
+   Header
+   ========================= */
+body.black-header header:not(.scrolled) {
+  color: var(--color-text);
+}
+
+body.black-header header:not(.scrolled) #header-logo {
+  filter: brightness(0);
+}
+
+body.black-header header:not(.scrolled) .social-link img {
+  filter: brightness(0);
+}
+
+body.black-header header:not(.scrolled) .lang-dropdown {
+  background: white;
+  color: black;
+}
+
+
+/* =========================
+   Genral hero
+   ========================= */
+.hero {
+  height: 40vh;
+  position: relative;
+  overflow: hidden;
+
+  border-bottom-left-radius: 120px 80px;
+  border-bottom-right-radius: 120px 80px;
+
+  border: 1px solid var(--color-border);
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 45%;
+}

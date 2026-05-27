@@ -1,4 +1,3 @@
-
 /* =========================
    HEADER BASE
    ========================= */
@@ -49,6 +48,10 @@ header nav a {
 /* =========================
    LEFT SIDE
    ========================= */
+
+.hamburger {
+  display: none;
+}
 
 .header-left {
   display: flex;
@@ -151,10 +154,6 @@ nav a:hover::after {
   transition: background 0.2s ease;
 }
 
-.lang:hover .lang-icon {
-  background: var(--color-bg-2);
-}
-
 .lang-dropdown {
   position: absolute;
   top: 100%;
@@ -163,7 +162,7 @@ nav a:hover::after {
   min-width: 140px;
   padding: 0.5rem;
 
-  background: white;
+  background: var(--color-bg-black);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
 
@@ -191,72 +190,134 @@ nav a:hover::after {
 
 .lang-dropdown a:hover {
   background: var(--color-bg-2);
+  color: var(--color-text)
+}
+
+
+/* =========================
+   LANG DROPDOWN - SCROLLED
+   ========================= */
+header.scrolled .social-link img {
+  filter: brightness(0);
+}
+
+header.scrolled .lang-dropdown,
+header.menu-open .lang-dropdown {
+  background: white;
+  border: 1px solid var(--color-border);
+}
+
+/* hover på items */
+header.scrolled .lang-dropdown a:hover,
+header.menu-open .lang-dropdown a:hover {
+  background: var(--color-bg-2);
 }
 
 /* =========================
-   MOBILE MENU
+   HAMBURGER
+   ========================= */
+
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--color-text-light);
+  z-index: 2001;
+  transition: color 0.2s ease;
+}
+
+/* når header bliver hvid */
+header.scrolled .hamburger {
+  color: var(--color-text);
+}
+
+/* når menu er åben */
+header.menu-open .hamburger {
+  color: var(--color-text);
+}
+
+/* når hamburger er åben */
+header.menu-open {
+  background: rgba(255,255,255,0.96);
+  color: var(--color-text);
+  box-shadow: var(--shadow-sm);
+}
+
+/* =========================
+   MOBILE MENU OVERLAY
    ========================= */
 
 .mobile-menu {
   position: fixed;
+  inset: 0;
   top: var(--header-height);
-  left: 0;
-  right: 0;
-  bottom: 0;
 
   background: rgba(255,255,255,0.97);
   backdrop-filter: blur(10px);
 
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.2rem;
 
   padding: 2rem;
 
   opacity: 0;
-  pointer-events: none;
+  visibility: hidden;
   transform: translateY(-10px);
 
   transition: 0.25s ease;
+
+  z-index: 1500;
 }
 
+/* OPEN STATE */
 .mobile-menu.open {
   opacity: 1;
-  pointer-events: auto;
+  visibility: visible;
   transform: translateY(0);
 }
 
-header.menu-open {
+/* LINKS */
+.mobile-menu a {
+  text-decoration: none;
   color: var(--color-text);
-  background: rgba(255,255,255,0.97);
+  font-size: 1.1rem;
 }
 
-header.menu-open .hamburger,
-header.menu-open nav a,
-header.menu-open .social-link {
-  color: var(--color-text) !important;
+/* CTA */
+.mobile-cta {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.mobile-menu .btn-primary {
+  color: var(--color-text-light) !important;
+}
+
+/* SOCIALS */
+.mobile-socials {
+  display: flex;
+  gap: 1rem;
+  margin-top: auto;
 }
 
 /* =========================
-   MOBILE
+   MOBILE RULES
    ========================= */
 
 @media (max-width: 768px) {
 
   .hamburger {
     display: block;
+    z-index: 2001;
   }
 
   nav {
     display: none;
   }
 
-  .social-link {
+  .desktop-cta {
     display: none;
-  }
-
-  header {
-    padding: 0 1rem;
   }
 
   .logo {
@@ -264,4 +325,121 @@ header.menu-open .social-link {
     left: 50%;
     transform: translateX(-50%);
   }
+
+  .header-left .social-link {
+  display: none;
+}
+
+.mobile-socials {
+  margin-top: auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.mobile-socials .social-link {
+  display: flex;
+}
+
+.mobile-socials img {
+  width: 22px;
+  height: 22px;
+  filter: brightness(0); /* sorte ikoner */
+}
+
+  /* =========================
+   MOBILE MENU - ALWAYS WHITE
+   ========================= */
+
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  top: var(--header-height);
+
+  background: #fff;
+  color: #000;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 2rem;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+
+  transition: 0.25s ease;
+
+  z-index: 1500;
+}
+
+.mobile-menu.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* CTA (small + clean, ikke fuld bredde monster) */
+.mobile-cta {
+  width: auto;
+  align-self: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+/* LINKS */
+.mobile-menu a {
+  color: #000;
+  text-decoration: none;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+/* =========================
+   SOCIALS BOTTOM CENTER
+   ========================= */
+
+.mobile-socials {
+  margin-top: auto;
+
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.mobile-socials img {
+  width: 22px;
+  height: 22px;
+  filter: brightness(0);
+}
+
+/* slå hover fra på mobil */
+  .lang:hover .lang-dropdown {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-8px);
+  }
+
+  /* brug JS click i stedet */
+  .lang.open .lang-dropdown {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .mobile-socials {
+  margin-top: auto;
+
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.mobile-socials img {
+  width: 22px;
+  height: 22px;
+}
 }
