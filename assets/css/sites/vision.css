@@ -1,0 +1,138 @@
+/* ==========================
+   VISION PAGE
+========================== */
+
+.vision-page {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* ==========================
+   CONTAINER
+========================== */
+
+.vision-container {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+/* ==========================
+   SECTION
+========================== */
+
+.vision-section {
+  padding: 5rem 0;
+}
+
+.vision-section h2 {
+  margin-bottom: 1.5rem;
+}
+
+.vision-section p {
+  line-height: 1.8;
+  opacity: 0.9;
+}
+
+/* ==========================
+   GRID
+========================== */
+
+.vision-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* ==========================
+   IMAGE
+========================== */
+
+.vision-image {
+  overflow: hidden;
+  border-radius: 24px;
+}
+
+.vision-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ==========================
+   QUOTE SECTION
+========================== */
+
+.vision-quote {
+  background: var(--color-bg-black);
+  color: var(--color-text-light);
+  text-align: center;
+
+  padding: 6rem 0;
+}
+
+.vision-quote h2 {
+  margin-bottom: 1rem;
+}
+
+.vision-quote p {
+  opacity: 0.75;
+}
+
+/* ==========================
+   HIGHLIGHT
+========================== */
+
+.vision-highlight {
+  background: rgba(0,0,0,0.04);
+
+  padding: 2rem;
+  border-radius: 24px;
+}
+
+.vision-highlight ul {
+  margin-top: 1rem;
+  padding-left: 1.2rem;
+}
+
+.vision-highlight li {
+  margin-bottom: 0.5rem;
+}
+
+/* ==========================
+   OUTRO
+========================== */
+
+.vision-outro {
+  text-align: center;
+  padding-bottom: 6rem;
+}
+
+/* ==========================
+   CTA
+========================== */
+
+.vision-cta {
+  margin-top: 2rem;
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width: 768px) {
+
+  .vision-section {
+    padding: 4rem 0;
+  }
+
+  .vision-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .vision-quote {
+    padding: 4rem 0;
+  }
+}

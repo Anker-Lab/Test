@@ -1,0 +1,170 @@
+/* =========================
+   Footer BASE
+   ========================= */
+
+.footer {
+  background: var(--color-bg-black);
+  color: var(--color-text-light);
+
+  padding: 3rem 1.5rem 1.5rem;
+}
+
+/* =========================
+   WRAPPER (midt-baseret layout)
+========================= */
+
+.footer-inner {
+  max-width: 900px;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: flex-start;
+  gap: 4rem;
+
+  /* 👇 FIX: giv venstre kolonne en fast bredde */
+}
+
+
+/* =========================
+   VENSTRE SIDE (BRANDING)
+========================= */
+
+/* 🔥 VIGTIGT: tving ens startpunkt */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  width: 220px; /* eller 200–240px alt efter smag */
+}
+
+.footer-socials,
+.footer-subtext {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+/* LOGO */
+.footer-logo {
+  width: 190px;
+  display: block;
+  margin: 0;
+}
+
+
+/* SOCIALS */
+.footer-socials {
+  display: flex;
+  gap: 0.8rem;
+
+  margin: 0;
+  padding: 0;
+
+  align-items: flex-start; /* vigtigt */
+}
+
+.footer-socials a {
+  display: inline-flex; /* vigtig: fjerner inline offset */
+}
+
+.footer-socials img {
+  width: 18px;
+  height: 18px;
+  display: block; /* fjerner baseline shift */
+  margin-top: 10px; /* finjustering for vertikal centering */
+}
+
+.footer-socials a:hover img {
+  transform: translateY(-2px);
+}
+
+/* SUBTEXT */
+.footer-subtext {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  margin: 0;
+}
+
+.footer-left-under {
+  margin-left: 30px;
+}
+
+
+/* =========================
+   HØJRE SIDE (KONTAKT)
+========================= */
+
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.footer-mail,
+.footer-address {
+  color: inherit;
+  text-decoration: none;
+
+  line-height: 1.5;
+  opacity: 0.85;
+}
+
+.footer-mail {
+  font-weight: 500;
+}
+
+/* hover */
+.footer-mail:hover,
+.footer-address:hover {
+  color: var(--color-primary);
+  opacity: 1;
+}
+
+/* =========================
+   BOTTOM (COPYRIGHT)
+========================= */
+
+.footer-bottom {
+  margin-top: 2rem;
+  text-align: center;
+
+  font-size: 0.72rem;
+  line-height: 1.4;
+
+  opacity: 0.45;
+}
+
+.footer-bottom p {
+  margin: 0.15rem 0;
+}
+
+.footer-bottom a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: 0.2s ease;
+}
+
+.footer-bottom a:hover {
+  border-bottom: 1px solid currentColor;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    gap: 2rem;
+  }
+
+  .footer-brand,
+  .footer-right {
+    align-items: center;
+  }
+}
