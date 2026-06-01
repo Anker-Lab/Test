@@ -86,10 +86,9 @@
    HØJRE SIDE (KONTAKT)
 ========================= */
 
-.footer-right {
+.footer-contact {
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
 
   text-align: left;
 }
@@ -105,6 +104,10 @@
 
 .footer-mail {
   font-weight: 500;
+}
+
+.footer-address {
+  margin-top: 1rem;
 }
 
 /* hover */
