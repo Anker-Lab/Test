@@ -86,6 +86,10 @@
   flex-wrap: wrap;
 }
 
+.dot {
+  display: inline;
+}
+
 .date .break {
   display: inline;
 }
@@ -109,7 +113,7 @@
     justify-content: center;
   }
 
-  .mobile-break {
+  .dot {
     display: none;
   }
 
