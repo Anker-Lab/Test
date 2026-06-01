@@ -151,6 +151,19 @@ ul {
   transform: translateY(-1px);
 }
 
+/* =========================
+   break
+========================= */
+
+.break {
+  display: inline;
+}
+
+@media (max-width: 500px) {
+  .break {
+    display: block;
+  }
+}
 
 /* =========================
    Cookies
