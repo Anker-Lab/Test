@@ -86,10 +86,6 @@
   flex-wrap: wrap;
 }
 
-.dot {
-  display: inline;
-}
-
 .date .break {
   display: inline;
 }
@@ -113,12 +109,12 @@
     justify-content: center;
   }
 
-  .dot {
-    display: none;
-  }
-
   .date .break {
     display: block;
+  }
+
+  .dot {
+    display: none;
   }
 }
 
