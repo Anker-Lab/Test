@@ -86,6 +86,10 @@
   flex-wrap: wrap;
 }
 
+.mobile-break {
+  display: none;
+}
+
 /* RESPONSIVE */
 @media (max-width: 900px) {
   .hero h1 {
@@ -103,6 +107,10 @@
 
   .hero-actions {
     justify-content: center;
+  }
+
+  .mobile-break {
+    display: block;
   }
 }
 
