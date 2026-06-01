@@ -86,8 +86,8 @@
   flex-wrap: wrap;
 }
 
-.mobile-break {
-  display: none;
+.date .break {
+  display: inline;
 }
 
 /* RESPONSIVE */
@@ -110,6 +110,10 @@
   }
 
   .mobile-break {
+    display: none;
+  }
+
+  .date .break {
     display: block;
   }
 }
