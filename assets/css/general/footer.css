@@ -1,168 +1,120 @@
 /* =========================
-   Footer BASE
-   ========================= */
+   FOOTER BASE
+========================= */
 
 .footer {
   background: var(--color-bg-black);
   color: var(--color-text-light);
-
   padding: 3rem 0 1.5rem;
 }
 
 /* =========================
-   WRAPPER (midt-baseret layout)
+   GRID LAYOUT
 ========================= */
 
 .footer-inner {
   width: min(1200px, calc(100% - 4rem));
   margin: 0 auto;
 
-  display: flex;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 4rem;
 
-  gap: 100px; /* prøv 5–10px */
+  align-items: start;
 }
 
-
 /* =========================
-   VENSTRE SIDE (BRANDING)
+   BRAND
 ========================= */
 
-/* 🔥 VIGTIGT: tving ens startpunkt */
 .footer-brand {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 0.4rem;
+  gap: 0.8rem;
 }
 
-.footer-socials,
-.footer-subtext {
-  margin-left: 0;
-  padding-left: 0;
-}
-
-/* LOGO */
 .footer-logo {
-  width: 190px;
-  display: block;
-  margin: 0;
+  width: 180px;
+  height: auto;
 }
 
-
-/* SOCIALS */
 .footer-socials {
   display: flex;
   gap: 0.8rem;
-  margin-top: 0.2rem;
 }
 
 .footer-socials a {
-  display: inline-flex; /* vigtig: fjerner inline offset */
+  display: inline-flex;
 }
 
 .footer-socials img {
   width: 18px;
   height: 18px;
-  display: block; /* fjerner baseline shift */
-  margin-top: 10px; /* finjustering for vertikal centering */
-}
-
-.footer-socials a:hover img {
-  opacity: 1;
-  transform: translateY(-1px);
-  transition: color 0.2s ease;
-}
-
-/* SUBTEXT */
-.footer-subtext {
-  font-size: 0.8rem;
-  opacity: 0.6;
-  margin: 0;
-}
-
-
-/* =========================
-   HØJRE SIDE (KONTAKT)
-========================= */
-
-.footer-contact {
-  display: flex;
-  flex-direction: column;
-
-  text-align: left;
-}
-
-.footer-mail,
-.footer-address {
-  color: inherit;
-  text-decoration: none;
-
-  line-height: 1.5;
-  opacity: 0.85;
-}
-
-.footer-mail {
-  font-weight: 500;
-}
-
-.footer-address {
-  margin-top: 1rem;
-}
-
-/* hover */
-.footer-mail:hover,
-.footer-address:hover {
-  color: var(--color-primary);
-  opacity: 1;
-  transition: color 0.2s ease;
-}
-
-/* =========================
-   BOTTOM (COPYRIGHT)
-========================= */
-
-.footer-bottom {
-  margin-top: 2rem;
-  text-align: center;
-
-  font-size: 0.72rem;
-  line-height: 1.4;
-
-  opacity: 0.45;
-}
-
-.footer-bottom p {
-  margin: 0.15rem 0;
-}
-
-.footer-bottom a {
-  color: inherit;
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
+  display: block;
   transition: 0.2s ease;
 }
 
-.footer-bottom a:hover {
-  border-bottom: 1px solid currentColor;
+.footer-socials a:hover img {
+  opacity: 0.8;
+  transform: translateY(-2px);
+}
+
+/* =========================
+   TEXT STYLES
+========================= */
+
+.footer-title {
+  font-size: 0.85rem;
+  opacity: 0.6;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.footer-name {
+  margin: 0 0 0.5rem;
+}
+
+.footer-mail,
+.footer-address-link {
+  color: inherit;
+  text-decoration: none;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+.footer-mail:hover,
+.footer-address-link:hover {
+  opacity: 1;
+  color: var(--color-primary);
+  transition: 0.2s ease;
+}
+
+/* =========================
+   BOTTOM
+========================= */
+
+.footer-bottom {
+  margin-top: 2.5rem;
+  text-align: center;
+  font-size: 0.75rem;
+  opacity: 0.45;
 }
 
 /* =========================
    MOBILE
 ========================= */
 
-@media (max-width: 550px) {
+@media (max-width: 768px) {
 
   .footer-inner {
-    flex-direction: column;
-    align-items: flex-start; /* 👈 ikke center */
-    text-align: left;
-
-    gap: 2rem;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
   }
 
   .footer-brand,
-  .footer-right {
-    align-items: flex-start; /* 👈 ikke center */
+  .footer-contact,
+  .footer-address {
+    text-align: left;
   }
 }
