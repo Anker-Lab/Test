@@ -14,8 +14,6 @@ header {
   align-items: center;
   justify-content: space-between;
 
-  padding: 0 2rem;
-
   background: transparent;
 
   z-index: 1000;
@@ -23,6 +21,12 @@ header {
   color: var(--color-text-light);
 
   transition: background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 /* =========================
@@ -194,7 +198,7 @@ nav a:hover::after {
 
 .lang-dropdown a:hover {
   background: var(--color-bg-2);
-  color: var(--color-text)
+  color: var(--color-text);
 }
 
 

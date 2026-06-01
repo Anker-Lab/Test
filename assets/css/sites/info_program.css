@@ -1,75 +1,22 @@
 /* =========================
-   HERO
-========================= */
-
-.hero {
-  position: relative;
-  height: 35vh;
-
-  overflow: hidden;
-
-  border: 1px solid var(--color-border);
-
-  /* rund bue kun nederst */
-  border-bottom-left-radius: 100% 18%;
-  border-bottom-right-radius: 100% 18%;
-}
-
-.hero img {
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-  object-position: center center;
-
-  display: block;
-}
-
-/* mørkt overlay så tekst kan læses */
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background: rgba(0,0,0,0.18);
-}
-
-/* text ovenpå */
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-
-  z-index: 2;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  text-align: center;
-}
-
-.hero-overlay h1 {
-  color: white;
-  font-size: clamp(2.5rem, 6vw, 4rem);
-}
-
-/* =========================
    COMING SOON
 ========================= */
 
 .coming-soon {
-  min-height: 58vh;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  padding: 4rem 1.5rem;
+  min-height: 48vh;
+  padding: 5rem 0;
 }
 
+.coming-soon-layout {
+  display: grid;
+  grid-template-columns: 1fr 500px;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* VENSTRE SIDE */
 .coming-soon-content {
   max-width: 650px;
-  text-align: center;
 }
 
 .coming-soon-content h2 {
@@ -81,23 +28,17 @@
   line-height: 1.7;
 }
 
-/* =========================
-   NEWSLETTER BUTTON
-========================= */
-
+/* CTA */
 .newsletter-btn {
   margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
-/* =========================
-   SOCIALS
-========================= */
-
+/* SOCIALS */
 .social-container {
   display: flex;
-  justify-content: center;
-  gap: 1.25rem;
+  justify-content: flex-start; /* 👈 helt til venstre */
+  gap: 1rem;
 }
 
 .social-container img {
@@ -105,7 +46,7 @@
   height: 24px;
 
   opacity: 0.9;
-  transition: 0.2s ease;
+  transition: transform .2s ease, opacity .2s ease;
 }
 
 .social-container img:hover {
@@ -113,22 +54,36 @@
   opacity: 1;
 }
 
-/* =========================
-   MOBILE
-========================= */
+/* HØJRE BILLEDE */
+.coming-soon-image {
+  justify-self: end; /* 👈 helt til højre */
+}
 
-@media (max-width: 768px) {
+.coming-soon-image img {
+  width: 100%;
+  max-width: 500px;
+  height: 360px;
 
-  .hero {
-    height: 30vh;
+  object-fit: cover;
+
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+
+  .coming-soon-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 
-  .coming-soon {
-    min-height: 62vh;
-    padding: 3rem 1.25rem;
+  .coming-soon-image {
+    justify-self: stretch;
   }
 
-  .hero-overlay h1 {
-    font-size: 2.2rem;
+  .coming-soon-image img {
+    max-width: 100%;
+    height: 280px;
   }
 }

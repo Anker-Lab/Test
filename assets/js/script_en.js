@@ -61,8 +61,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const open = header.classList.contains("menu-open");
 
       logo.src = (scrolled || open)
-        ? "/assets/logo/move/move.svg"
-        : "/assets/logo/move/move_w.svg";
+        ? "/assets/logo/move/move_en.svg"
+        : "/assets/logo/move/move_w_en.svg";
     }
 
     window.addEventListener("scroll", () => {
@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   if (headerPlaceholder) {
-    fetch("/assets/header-footer/header.html")
+    fetch("/assets/header-footer/header_en.html")
       .then(res => res.text())
       .then(html => {
         headerPlaceholder.innerHTML = html;
@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   if (footerPlaceholder) {
-    fetch("/assets/header-footer/footer.html")
+    fetch("/assets/header-footer/footer_en.html")
       .then(res => res.text())
       .then(html => {
         footerPlaceholder.innerHTML = html;

@@ -128,14 +128,27 @@ ul {
   border: 1px solid var(--color-primary);
 }
 
-/* container styles */
+/* =========================
+   Global container
+========================= */
+
 .container {
-  width: min(var(--container), calc(100% - 2rem));
-  margin: 0 auto;
+  width: min(1200px, calc(100% - 4rem));
+  margin-inline: auto;
 }
 
+/* sektion spacing */
 .section {
-  padding: 5rem 0;
+  padding: 6rem 0;
+}
+
+/* =========================
+   Social icons
+========================= */
+
+.social-link:hover img {
+  opacity: 1;
+  transform: translateY(-1px);
 }
 
 

@@ -6,7 +6,7 @@
   background: var(--color-bg-black);
   color: var(--color-text-light);
 
-  padding: 3rem 1.5rem 1.5rem;
+  padding: 3rem 0 1.5rem;
 }
 
 /* =========================
@@ -14,14 +14,13 @@
 ========================= */
 
 .footer-inner {
-  max-width: 900px;
+  width: min(1200px, calc(100% - 4rem));
   margin: 0 auto;
 
   display: flex;
-  justify-content: flex-start;
-  gap: 4rem;
+  align-items: flex-start;
 
-  /* 👇 FIX: giv venstre kolonne en fast bredde */
+  gap: 100px; /* prøv 5–10px */
 }
 
 
@@ -34,8 +33,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 0.35rem;
-  width: 220px; /* eller 200–240px alt efter smag */
+  gap: 0.4rem;
 }
 
 .footer-socials,
@@ -56,11 +54,7 @@
 .footer-socials {
   display: flex;
   gap: 0.8rem;
-
-  margin: 0;
-  padding: 0;
-
-  align-items: flex-start; /* vigtigt */
+  margin-top: 0.2rem;
 }
 
 .footer-socials a {
@@ -75,7 +69,9 @@
 }
 
 .footer-socials a:hover img {
-  transform: translateY(-2px);
+  opacity: 1;
+  transform: translateY(-1px);
+  transition: color 0.2s ease;
 }
 
 /* SUBTEXT */
@@ -83,10 +79,6 @@
   font-size: 0.8rem;
   opacity: 0.6;
   margin: 0;
-}
-
-.footer-left-under {
-  margin-left: 30px;
 }
 
 
@@ -97,7 +89,9 @@
 .footer-right {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.3rem;
+
+  text-align: left;
 }
 
 .footer-mail,
@@ -118,6 +112,7 @@
 .footer-address:hover {
   color: var(--color-primary);
   opacity: 1;
+  transition: color 0.2s ease;
 }
 
 /* =========================
@@ -153,18 +148,18 @@
    MOBILE
 ========================= */
 
-@media (max-width: 768px) {
+@media (max-width: 550px) {
 
   .footer-inner {
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start; /* 👈 ikke center */
+    text-align: left;
 
     gap: 2rem;
   }
 
   .footer-brand,
   .footer-right {
-    align-items: center;
+    align-items: flex-start; /* 👈 ikke center */
   }
 }
