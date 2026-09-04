@@ -281,59 +281,96 @@ document.addEventListener("DOMContentLoaded", () => {
         const saveButton = programView.querySelector(".save-program-button");
         const pdfButton = programView.querySelector(".download-pdf-button");
 
+
+        // --------------------------------------------------
         // GEM PROGRAM
+        // --------------------------------------------------
+
         if (!files.image) {
+
             saveButton.disabled = true;
+
         } else {
+
             saveButton.addEventListener("click", async () => {
+
                 try {
+
                     const response = await fetch(files.image);
                     const blob = await response.blob();
 
                     const file = new File(
                         [blob],
                         "MOVE26-program.jpeg",
-                        { type: "image/jpeg" }
+                        {
+                            type: "image/jpeg"
+                        }
                     );
 
+
+                    // Hvis telefonen understøtter deling af filer
                     if (
+                        navigator.share &&
                         navigator.canShare &&
-                        navigator.canShare({ files: [file] })
+                        navigator.canShare({
+                            files: [file]
+                        })
                     ) {
+
                         await navigator.share({
                             files: [file],
                             title: "MOVE26 program",
                             text: "MOVE26 program"
                         });
+
                     } else {
+
+                        // Desktop / browser uden Share API
+                        const url = URL.createObjectURL(blob);
+
                         const link = document.createElement("a");
-                        link.href = URL.createObjectURL(blob);
+                        link.href = url;
                         link.download = "MOVE26-program.jpeg";
+
+                        document.body.appendChild(link);
                         link.click();
-                        URL.revokeObjectURL(link.href);
+                        link.remove();
+
+                        setTimeout(() => {
+                            URL.revokeObjectURL(url);
+                        }, 1000);
                     }
 
                 } catch (error) {
-                    console.error("Kunne ikke gemme programmet:", error);
+
+                    console.error(
+                        "Kunne ikke gemme programmet:",
+                        error
+                    );
+
                 }
+
             });
+
         }
 
 
+        // --------------------------------------------------
         // DOWNLOAD PDF
+        // --------------------------------------------------
+
         if (!files.pdf) {
+
             pdfButton.disabled = true;
+
         } else {
+
             pdfButton.addEventListener("click", () => {
-                const link = document.createElement("a");
 
-                link.href = files.pdf;
-                link.download = "";
+                window.open(files.pdf, "_blank");
 
-                document.body.appendChild(link);
-                link.click();
-                link.remove();
             });
+
         }
 
     });
