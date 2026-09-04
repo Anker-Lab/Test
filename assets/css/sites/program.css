@@ -404,7 +404,7 @@
 /* SØNDAG */
 .sunday {
     width: 100%;
-    margin: 0 auto 110px;
+    margin: 0 auto;
 }
 
 .sunday-heading {
@@ -971,7 +971,7 @@
 ========================= */
 .program-download {
     max-width: 700px;
-    margin: 0 auto 70px;
+    margin: 100px auto 0;
     padding: 35px;
     text-align: center;
     border: 1px solid #e5e5e5;

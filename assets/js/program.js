@@ -248,43 +248,94 @@ function updateSunday() {
 
 
 // --------------------------------------------------
-    // Download
-    // --------------------------------------------------
-const saveProgramButton = document.getElementById("saveProgramButton");
+// DOWNLOAD PROGRAM
+// --------------------------------------------------
 
-saveProgramButton.addEventListener("click", async () => {
-    const imageUrl = "/assets/images/program/9e6ea793-0713-496b-9c96-abdb03fbc521.jpeg";
+const PROGRAM_FILES = {
+    voksen: {
+        image: "/assets/images/program/9e6ea793-0713-496b-9c96-abdb03fbc521.jpeg",
+        pdf: "/assets/images/program/9e6ea793-0713-496b-9c96-abdb03fbc521.pdf"
+    },
 
-    try {
-        const response = await fetch(imageUrl);
-        const blob = await response.blob();
+    tween: {
+        image: null,
+        pdf: null
+    },
 
-        const file = new File(
-            [blob],
-            "MOVE26-program.jpeg",
-            { type: "image/jpeg" }
-        );
+    mini: {
+        image: null,
+        pdf: null
+    }
+};
 
-        if (
-            navigator.canShare &&
-            navigator.canShare({ files: [file] })
-        ) {
-            await navigator.share({
-                files: [file],
-                title: "MOVE26 program",
-                text: "MOVE26 program"
-            });
 
+document.addEventListener("DOMContentLoaded", () => {
+
+    document.querySelectorAll(".program-view").forEach(programView => {
+
+        const programType = programView.dataset.program;
+        const files = PROGRAM_FILES[programType];
+
+        if (!files) return;
+
+        const saveButton = programView.querySelector(".save-program-button");
+        const pdfButton = programView.querySelector(".download-pdf-button");
+
+        // GEM PROGRAM
+        if (!files.image) {
+            saveButton.disabled = true;
         } else {
-            const link = document.createElement("a");
-            link.href = URL.createObjectURL(blob);
-            link.download = "MOVE26-program.jpeg";
-            link.click();
+            saveButton.addEventListener("click", async () => {
+                try {
+                    const response = await fetch(files.image);
+                    const blob = await response.blob();
 
-            URL.revokeObjectURL(link.href);
+                    const file = new File(
+                        [blob],
+                        "MOVE26-program.jpeg",
+                        { type: "image/jpeg" }
+                    );
+
+                    if (
+                        navigator.canShare &&
+                        navigator.canShare({ files: [file] })
+                    ) {
+                        await navigator.share({
+                            files: [file],
+                            title: "MOVE26 program",
+                            text: "MOVE26 program"
+                        });
+                    } else {
+                        const link = document.createElement("a");
+                        link.href = URL.createObjectURL(blob);
+                        link.download = "MOVE26-program.jpeg";
+                        link.click();
+                        URL.revokeObjectURL(link.href);
+                    }
+
+                } catch (error) {
+                    console.error("Kunne ikke gemme programmet:", error);
+                }
+            });
         }
 
-    } catch (error) {
-        console.error("Kunne ikke gemme programmet:", error);
-    }
+
+        // DOWNLOAD PDF
+        if (!files.pdf) {
+            pdfButton.disabled = true;
+        } else {
+            pdfButton.addEventListener("click", () => {
+                const link = document.createElement("a");
+
+                link.href = files.pdf;
+                link.download = "";
+
+                document.body.appendChild(link);
+                link.click();
+                link.remove();
+            });
+        }
+
+    });
+
 });
